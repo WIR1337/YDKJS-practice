@@ -17,8 +17,8 @@ function User() {
 
 // создать экземпляр модуля `User`
 var fred = User();
-var alex = User()
-var john = User()
+var alex = User();
+fred.login('fred', 'qwe123!')
+alex.login('alex','asd123!')
 
-alex.login(alex,123321)
-fred.login("fred", "12Battery34!");
+
