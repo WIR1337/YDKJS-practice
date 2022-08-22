@@ -1,10 +1,8 @@
 function filter_list(l) {
-    let newArr = l.filter(e => {
-        if (typeof e != 'string' && !String(e).startsWith('-')) {
+    let newArr = l.map(e => {
+        if (typeof e == 'number' && !String(e).startsWith('-')) {
             return e
-        } else if (e == 0) {
-            return e
-        }
+        } 
     })
     return newArr
   }
@@ -15,4 +13,4 @@ function filter_list(l) {
   console.log(result)
 
 //   !String(e).startsWith('-')
-// Почему не выдает ноль ? 
+// Почему filter не возвращает 0 а map возвращает

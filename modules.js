@@ -1,24 +1,17 @@
-function User() {
-    var username, password;
+function seller() {
+    var name,age,type;
 
-    function doLogin(user, pw) {
-        username = user;
-        password = pw;
-
-        // сделать остальную часть работы по логину
+    function doResume(yourname,yourage,yourtype) {
+        name = yourname
+        age = yourage
+        type = yourtype
     }
 
-    var publicAPI = {
-        login: doLogin
-    };
+    var resume = {
+        login: doResume
+    }
+    return resume
 
-    return publicAPI;
 }
 
-// создать экземпляр модуля `User`
-var fred = User();
-var alex = User();
-fred.login('fred', 'qwe123!')
-alex.login('alex','asd123!')
-
-
+var qwe = seller()
