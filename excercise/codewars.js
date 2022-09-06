@@ -28,7 +28,6 @@ function comp(array1, array2) {
         if (counter == arr1.length) return true
         else if (counter < arr1.length) return false
     }
-
 }
 let result = comp(a, b)
 console.log(result)
