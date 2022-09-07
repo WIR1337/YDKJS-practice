@@ -33,22 +33,22 @@
 // foo()
 
 
-// var fn;
+var fn;
 
-// function foo() {
-// 	var a = 2;
+function foo() {
+    var a = 2;
 
-// 	function baz() {
-// 		console.log( a );
-// 	}
+    function baz() {
+        console.log(a);
+    }
 
-// 	fn = baz; // присваиваем `baz` глобальной переменной
-// }
+    fn = baz; // присваиваем `baz` глобальной переменной
+}
 
-// function bar() {
-// 	fn(); // смотри мам, я видел замыкание!
-// }
+function bar() {
+    fn(); // смотри мам, я видел замыкание!
+}
 
-// foo();
+foo();
 
-// bar(); // 2
+bar(); // 2
