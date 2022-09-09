@@ -1,5 +1,17 @@
 for (var i = 1; i <= 5; i++) {
-    setTimeout(function timer() {
-        console.log(i);
-    }, i * 1000);
+    (function (j) {
+        setTimeout(function timer() {
+            console.log(j);
+        }, 0);
+    })(i);
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
+    console.log('Hi')
 }
