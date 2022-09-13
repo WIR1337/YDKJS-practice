@@ -3,13 +3,15 @@ Find max equal value to <=10 but not more
 */
 
 let arr = [5, 4, 3, 2, 1, 6, 8, 9]
-let result;
+let result = 0;
 
-result = arr.reduce((acc, cur) => {
-    if (acc + cur > 10) {
-        return cur
-    } else if (acc + cur < 10) {
-        return acc + cur
+for (let i = 0; i < arr.length; i++) {
+    let elOfArr = arr[i]
+
+    if (result + elOfArr <= 10) {
+        result += elOfArr
+    } else if (result + elOfArr > 10) {
     }
-},0)
+}
+
 console.log(result)
