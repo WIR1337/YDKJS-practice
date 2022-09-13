@@ -9,6 +9,6 @@ function showKeys() {
     return this.name
 }
 
-customMan[1] = showKeys.apply(man)
+customMan[1] = showKeys.apply(man, ['type'])
 
 console.log(customMan)
