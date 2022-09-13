@@ -15,23 +15,12 @@ function solution(number) {
     }
     var uniqArr = allNumbers.filter(function (item, pos) {
         return allNumbers.indexOf(item) == pos;
-    })
-    // if (uniqArr.length != 0 ) {
-    //     uniqArr.reduce((acc,cur) => {
-    //         var sum = 0;
-    //         var plus = 0;
-    //         if (sum < number) {
-    //             if ()
-    //             plus += acc + cur
-    //         } 
-    //     })
-    // } else {
-    //     return false
-    // }
+    }).sort((a,b) => b - a)
+    console.log(uniqArr)
     
-    // if (uniqArr.length != 0) { return result = uniqArr.reduce((acc, cur) => { return acc + cur }) } else { return false }
+    if (uniqArr.length != 0) { return result = uniqArr.reduce((acc, cur) => { return acc + cur }) } else { return false }
 }
 
 
-let a = solution(1000)
+let a = solution(10)
 console.log(a)
