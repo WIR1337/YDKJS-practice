@@ -1,3 +1,7 @@
+/* 
+Find max equal value to <=10 but not more
+*/
+
 let arr = [5, 4, 3, 2, 1, 6, 8, 9]
 let result;
 
