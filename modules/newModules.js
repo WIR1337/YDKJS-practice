@@ -1,10 +1,8 @@
 var MyModules = (function Manager() {
     var modules = {};
-
     function define(name, deps, impl) {
         for (var i = 0; i < deps.length; i++) {
             deps[i] = modules[deps[i]];
-            console.log(deps[i])
         }
         modules[name] = impl.apply(impl, deps);
     }
@@ -12,19 +10,36 @@ var MyModules = (function Manager() {
     function get(name) {
         return modules[name];
     }
-
+    // function return object with keys , and keys = functions
     return {
         define: define,
         get: get
     };
 })();
 
-MyModules.define("bar", [1], function () {
-    function hello(who) {
-        return "Let me introduce: " + who;
+
+MyModules.define('developer', [], function () {
+    function whoIsIt(name) {
+        console.log(`Let me introduce ${name}`)
     }
 
     return {
-        hello: hello
-    };
-});
+        whoIsIt: whoIsIt
+    }
+})
+
+
+let a = MyModules.get('developer').whoIsIt('Alex')
+
+let arr = ['developer']
+MyModules.define('experience', arr, function () {
+    function tellMeYourExp() {
+        console.log('4 moths')
+    }
+    return {
+        tellMeYourExp: tellMeYourExp
+    }
+})
+
+MyModules.get('experience').tellMeYourExp()
+console.log(arr[0].whoIsIt('Ivan'))
