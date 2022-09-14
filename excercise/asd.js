@@ -12,3 +12,7 @@ function solution(number) {
 
     if (allNumbers.length != 0) { return result = allNumbers.reduce((acc, cur) => { return acc + cur }) } else { return false }
 }
+
+
+let res = solution(10)
+console.log(res)
