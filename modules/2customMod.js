@@ -1,33 +1,46 @@
-var MyModules = (function Manager() {
-    var modules = {}; 
+var MyMod = (function Employe() {
+    var modules = {}
 
-    function define(name, deps, impl) {
-        console.log(name,deps,impl)
-        for (var i = 0; i < deps.length; i++) {
-            deps[i] = modules[deps[i]];
-            console.log(deps[i])
-            console.log(modules[deps[i]])
+    function newEmploye(name, args, yourFunc) {
+        for (var i = 0; i < args.length; i++) {
+            args[i] = modules[args[i]];
         }
-        modules[name] = impl.apply(impl, deps);
-        console.log(modules[name])
+        modules[name] = yourFunc.apply(yourFunc, args)
     }
 
     function get(name) {
-        return modules[name];
+        return modules[name]
+    }
+
+
+    return {
+        newEmploye: newEmploye,
+        get: get
+    }
+})();
+
+
+MyMod.newEmploye('Rick', [], function () {
+    function sayHi(name) {
+        console.log(`Hello everyone im ${name}`)
     }
 
     return {
-        define: define,
-        get: get
-    };
-})();
+        sayHi: sayHi
+    }
+})
+MyMod.newEmploye('foo', ['Rick'], function (hui) {
+    function awesome() {
+        hui.sayHi('awesome !')
+    }
 
-MyModules.define( "bar", [], function(){
-	function hello(who) {
-		return "Let me introduce: " + who;
-	}
+    return {
+        awesome: awesome
+    }
+})
 
-	return {
-		hello: hello
-	};
-} );
+let b = MyMod.get('foo')
+let a = MyMod.get('Rick')
+
+console.log(a)
+b.awesome()

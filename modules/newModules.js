@@ -1,5 +1,6 @@
 var MyModules = (function Manager() {
     var modules = {};
+
     function define(name, deps, impl) {
         for (var i = 0; i < deps.length; i++) {
             deps[i] = modules[deps[i]];
@@ -10,36 +11,42 @@ var MyModules = (function Manager() {
     function get(name) {
         return modules[name];
     }
-    // function return object with keys , and keys = functions
     return {
         define: define,
         get: get
     };
 })();
 
-
-MyModules.define('developer', [], function () {
-    function whoIsIt(name) {
-        console.log(`Let me introduce ${name}`)
+MyModules.define("bar", [], function () {
+    function hello(who) {
+        return "Let me introduce: " + who;
     }
 
     return {
-        whoIsIt: whoIsIt
-    }
-})
+        hello: hello
+    };
+});
 
-
-let a = MyModules.get('developer').whoIsIt('Alex')
-
-let arr = ['developer']
-MyModules.define('experience', arr, function () {
-    function tellMeYourExp() {
-        console.log('4 moths')
+MyModules.define('sayHi', [], function () {
+    function qwe(name) {
+        return `${name} у тебя получилось !`
     }
     return {
-        tellMeYourExp: tellMeYourExp
+        qwe: qwe
     }
 })
 
-MyModules.get('experience').tellMeYourExp()
-console.log(arr[0].whoIsIt('Ivan'))
+MyModules.define("foo", ["sayHi", "bar"], function (sayHi, bar) {
+    var hungry = "Alexander";
+
+    function awesome() {
+        console.log(sayHi.qwe('Alexander'));
+        console.log(bar.hello('Alexander'));
+    }
+
+    return {
+        awesome: awesome
+    };
+});
+MyModules.get('foo').awesome()
+
