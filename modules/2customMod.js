@@ -5,14 +5,13 @@ var MyMod = (function Employe() {
         for (var i = 0; i < args.length; i++) {
             args[i] = modules[args[i]];
         }
+        // сделать еще 5 примеров с этим нюансом
         modules[name] = yourFunc.apply(yourFunc, args)
     }
 
     function get(name) {
         return modules[name]
     }
-
-
     return {
         newEmploye: newEmploye,
         get: get
@@ -29,9 +28,9 @@ MyMod.newEmploye('Rick', [], function () {
         sayHi: sayHi
     }
 })
-MyMod.newEmploye('foo', ['Rick'], function (hui) {
+MyMod.newEmploye('foo', ['Rick'], function (param) {
     function awesome() {
-        hui.sayHi('awesome !')
+        param.sayHi('awesome !')
     }
 
     return {
@@ -42,5 +41,5 @@ MyMod.newEmploye('foo', ['Rick'], function (hui) {
 let b = MyMod.get('foo')
 let a = MyMod.get('Rick')
 
-console.log(a)
+a.sayHi('Alexander')
 b.awesome()
