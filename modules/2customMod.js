@@ -18,7 +18,6 @@ var MyMod = (function Employe() {
     }
 })();
 
-
 MyMod.newEmploye('Rick', [], function () {
     function sayHi(name) {
         console.log(`Hello everyone im ${name}`)

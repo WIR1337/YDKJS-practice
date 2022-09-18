@@ -1,4 +1,4 @@
-var MyModules = (function Manager() {
+export var MyModules = (function Manager() {
     var modules = {};
 
     function define(name, deps, impl) {
