@@ -7,7 +7,7 @@ class Api {
     }
 
     whatsDay() {
-        console.log(`$Cегодня ${new Date}`)
+        console.log(`Cегодня ${new Date}`)
     }
 
 }
@@ -19,12 +19,10 @@ class Bot extends Api {
         this.id = id
     }
     sayHi() {
+        super.whatsDay()
         console.log(`Hi im Bot #${this.id}`);
     }
 }
 
-let a = new Bot(33)
+let a = new Bot(32)
 console.log(a);
-
-a.sayHi()
-a.calcSquare(2,20)
